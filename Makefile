@@ -1,10 +1,10 @@
 LIBMLX = mlx_linux/libmlx_Linux.a -Imlx_linux
 
-CFLAGS = -Wall -Wextra -Werror -g3 -MMD
+CFLAGS = -Wall -Wextra -Werror
 
 LFLAGS = -lXext -lX11 -lm -lz
 
-CC = clang
+CC = cc
 
 NAME = cub3d
 
@@ -41,32 +41,24 @@ SRC_DIR =	camera.c\
 
 SRC = $(addprefix $(DIR), $(SRC_DIR))
 
-OBJ = $(SRC:%.c=%.o)
-
-DEP = $(OBJ:%.o=%.d)
-
--include $(DEP)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
+.c.o:
 	$(CC) $(CFLAGS) -I -Imlx_linux -c $< -o $@
 
 $(NAME): $(OBJ)
 	make -C mlx_linux
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -O3 $(LIBMLX) $(LFLAGS)
-	
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBMLX) $(LFLAGS)
+
 clean:
 	make clean -C mlx_linux
 	rm -f $(OBJ)
-	rm -f $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-flemme: re
-	make clean
-
-.PHONY: clean fclean all re
+.PHONY: clean fclean all re .c.o

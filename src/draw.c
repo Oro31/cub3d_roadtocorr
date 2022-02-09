@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/11 18:29:58 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/27 04:47:55 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_get_pixels(t_all *vars, double *wall)
 	while (pos.x < vars->rsl.w)
 	{
 		pos.y = -1;
-		e = (vars->rsl.h - (int)(64 * 500 / wall[pos.x])) / 2;
+		e = (vars->rsl.h - (int)((S_HEIGHT / 10) * 500 / wall[pos.x])) / 2;
 		if (e < 0)
 			e = 0;
 		while (++pos.y < e)

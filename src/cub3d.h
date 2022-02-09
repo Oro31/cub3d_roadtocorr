@@ -6,12 +6,17 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:56:50 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/13 18:00:04 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/27 04:50:55 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+# define APPROXI 0.0001
+# define S_WIDTH 960
+# define S_HEIGHT 960
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -20,7 +25,6 @@
 # include <math.h>
 # include "get_next_line.h"
 # include "../mlx_linux/mlx.h"
-# define APPROXI 0.0001
 
 typedef struct s_data
 {

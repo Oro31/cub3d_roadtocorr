@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 07:46:41 by rvalton           #+#    #+#             */
-/*   Updated: 2022/01/10 14:06:53 by rvalton          ###   ########.fr       */
+/*   Updated: 2022/01/27 05:05:26 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_unif_walls(double *wall, int i)
 		i--;
 		m = 0;
 		j = 0;
-		while (i - j + 1 < 640 && i - j > 0
+		while (i - j + 1 < S_HEIGHT && i - j > 0
 			&& wall[i - j] < (wall[i - j + 1] + 0.01)
 			&& wall[i - j] > (wall[i - j + 1] - 0.01))
 		{
@@ -30,7 +30,7 @@ void	ft_unif_walls(double *wall, int i)
 			j++;
 		}
 		m = m / j;
-		while (i < 639 && i > 0 && wall[i] < (wall[i + 1] + 0.01)
+		while (i < (S_HEIGHT - 1) && i > 0 && wall[i] < (wall[i + 1] + 0.01)
 			&& wall[i] > (wall[i + 1] - 0.01))
 		{
 			wall[i] = m;
